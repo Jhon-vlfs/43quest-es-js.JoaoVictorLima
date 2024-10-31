@@ -1,0 +1,207 @@
+1)let nota;
+do {
+    nota = Number(prompt('Digite uma nota de 0 a 10: '));
+        if (isNaN(nota) || nota > 10 || nota < 0) {
+            alert('Nota inválida! Tente novamente.');
+        }
+} while (isNaN(nota) || nota > 10 || nota < 0);
+
+document.write(`Sua nota: ${nota}`);
+2)for(let i = 0; i <= 100; i++){
+    document.writeln(i)
+}
+3)let password;
+let userName;
+
+do {
+    userName = prompt('Digite o seu nome de usuário: ');
+    password = prompt('Digite sua senha: ');
+        if (userName == password) {
+            alert("Os dois campos não podem ser iguais. Tente novamente");
+        }
+} while (userName == password);
+
+alert('Cadastro concluído!');
+4)function leitorValidadorDeDados() {
+    let nome, idade, salario, sexo, estadoCivil;
+
+    do {
+        nome = prompt("Digite seu nome: ");
+            if (nome.length <= 3) {
+                alert('Seu nome deve possuir mais de 3 caracteres.');
+            }
+    } while (nome.length <= 3);
+
+    do {
+        idade = parseInt(prompt('Digite sua idade: '));
+            if (isNaN(idade) || idade <= 0 || idade >= 150) {
+                alert('Idade inválida! Tente novamente');
+            }
+    } while (isNaN(idade) || idade <= 0 || idade >= 150);
+
+    do {
+        salario = parseFloat(prompt('Digite seu salário: '));
+            if (isNaN(salario) || salario <= 0) {
+                alert('O salário deve ser maior que zero! Tente novamente');
+            }
+    } while (isNaN(salario) || salario <= 0);
+
+    do {
+        sexo = prompt('Diga seu sexo (f ou m): ').toLowerCase();
+            if (sexo !== "f" && sexo !== "m") {
+                alert("Entrada inválida! Tente novamente");
+            }
+    } while (sexo !== "f" && sexo !== "m");
+
+    do {
+        estadoCivil = prompt("Digite seu Estado Civil (s, c, v ou d): ").toLowerCase();
+            if (!["s", "c", "v", "d"].includes(estadoCivil)) {
+                alert('Estado Civil inválido! Tente novamente');
+            }
+    } while (!["s", "c", "v", "d"].includes(estadoCivil));
+
+    alert('Cadastro concluído!');
+}
+leitorValidadorDeDados();
+5)let povoA, povoB, anos;
+
+povoA = 80000;
+povoB = 200000;
+anos = 0;
+const crescA = 0.03;
+const crescB = 0.015;
+
+while (povoA < povoB) {
+    povoA += povoA *crescA;
+    povoB += povoB * crescB;
+    anos++;
+}
+
+document.write(`Precisaria de aproximadamente ${Math.ceil(anos)} anos para que a população do país A ultrapasse ou iguale a do país B.`)
+6)function taxaDeCrescimentoDePopulações() {
+    let povoA, povoB, anos, crescA, crescB;
+
+    povoA = parseFloat(prompt("Diga o valor desejado para a população A: "));
+    povoB = parseFloat(prompt("Diga o valor desejado para a população B: "));
+    crescA = parseFloat(prompt("Diga o valor desejado para a taxa de crescimentp da população A: "));
+    crescB = parseFloat(prompt("Diga o valor desejado para a taxa de crescimento da população B: "));
+
+    if (isNaN(povoA) || povoA <= 0 || isNaN(povoB) || povoB <= 0 || isNaN(crescA) || crescA <=0 || isNaN(crescB) || crescB <= 0 ){
+        alert('Insira valores válidos!');
+        return;
+    }
+
+    anos = 0;
+
+    while (povoA < povoB) {
+        povoA += povoA *crescA;
+        povoB += povoB * crescB;
+        anos++;
+    }
+
+    alert(`Precisaria de aproximadamente ${Math.ceil(anos)} anos para que a população do país A ultrapasse ou iguale a do país B.`);
+}
+
+let deNovo = true;
+while (deNovo) {
+    taxaDeCrescimentoDePopulações();
+    deNovo = cofirm('Deseja realizar outra operação?');
+}
+7) abaixo:
+for(let i = 1; i <= 20; i++){
+    document.write(i, "<br>")
+}
+   ao lado:
+for(let i = 1; i <= 20; i++){
+    document.write(i, "\n")
+}
+8)let nums = [];
+
+for (let i = 0; i < 5; i++) {
+    let num = parseFloat(prompt(`Digite o número na ordem ${i + 1}: `))
+        if (isNaN(num)) {
+            alert("Valor inválido. Tente novamente");
+            i--;
+        } else {
+            nums.push(num);
+        }
+}
+let maior = Math.max(...nums);
+alert(`O maior número dentre [${nums}] é: ${maior}`);
+9)let nums, soma, media;
+
+nums = [];
+soma = 0;
+
+for (let i = 0; i < 5; i++) {
+    let num = parseFloat(prompt(`Digite o número na ordem ${i + 1}: `))
+        if (isNaN(num)) {
+            alert("Valor inválido. Tente novamente");
+            i--;
+        } else {
+            nums.push(num);
+            soma += num;
+        }
+}
+media = soma / nums.length;
+alert(`A soma e a média dos números dentre [${nums}], respectivamente, é: ${soma} e ${media}`);
+10)for(let i = 0; i <= 50; i++){
+    if (i % 2 !== 0) {
+        document.writeln(i)
+    }
+}
+11)let num1, num2, minNum, maxNum, result;
+
+num1 = parseInt(prompt('Diga um número: '));
+num2 = parseInt(prompt('Diga outro número: '));
+minNum = Math.min(num1, num2);
+maxNum = Math.max(num1, num2);
+result = '';
+for(let i = minNum + 1; i < maxNum; i++){ 
+    result += i + " ";
+}
+document.write(`Os números inteiros correspondidos entre ${minNum} e ${maxNum} são: ${result}`);
+12)let num1, num2, minNum, maxNum, result, soma;
+
+num1 = parseInt(prompt('Diga um número: '));
+num2 = parseInt(prompt('Diga outro número: '));
+minNum = Math.min(num1, num2);
+maxNum = Math.max(num1, num2);
+result = '';
+soma = 0;
+for(let i = minNum + 1; i < maxNum; i++){ 
+    result += i + " ";
+    soma += i;
+}
+document.write(`Os números inteiros correspondidos entre ${minNum} e ${maxNum} são: ${soma}`); 
+13) 
+14) 
+15) 
+16) 
+17) 
+18) 
+19) 
+20) 
+21) 
+22) 
+23)
+24) 
+25) 
+26) 
+27) 
+28) 
+29) 
+30) 
+31) 
+32) 
+33) 
+34) 
+35) 
+36) 
+37) 
+38) 
+39) 
+40) 
+41) 
+42) 
+43)
