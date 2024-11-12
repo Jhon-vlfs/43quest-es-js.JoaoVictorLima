@@ -1,21 +1,35 @@
-//! Faça um programa que calcule o número médio de alunos por turma. Para isto, peça a quantidade de turmas e a quantidade de alunos para cada turma. As turmas não podem ter mais de 40 alunos.
+const gabarito = ['A', 'B', 'C', 'D', 'A', 'B', 'C', 'D', 'A', 'B']; // preguiça de fazer coisa aleatória, vai assim mesmo
 
-function mediaAlunosPorTurma(){
+let totalAlunos = 0;
+let maiorAcerto = 0;
+let menorAcerto = 10;
+let somaNotas = 0;
 
-    let turmas = Number(prompt("Quantas turmas existem?"));
-    let alunos = 0;
-    let media = 0;
-
-    for(let i = 0; i < turmas; i++){
-        alunos = Number(prompt(`Quantos alunos tem a turma ${i + 1}?`));
-            if(alunos > 40){
-                alert("A turma não pode ter mais de 40 alunos!");
-                i--;
-            }
-        media += alunos;            
+do {
+  let acertos = 0;
+  for (let i = 0; i < 10; i++) {
+    let resposta = prompt(`Questão ${i + 1}: (A, B, C, ou D)`).toUpperCase();
+    if (resposta === gabarito[i]) {
+      acertos++;
     }
-    media = media / turmas;
-    alert(`A media de alunos por turma é ${media.toFixed(2)}`);
-}
+  }
+  totalAlunos++;
+  somaNotas += acertos;
 
-mediaAlunosPorTurma();
+  if (acertos > maiorAcerto) {
+    maiorAcerto = acertos;
+  }
+  if (acertos < menorAcerto) {
+    menorAcerto = acertos;
+  }
+  alert(`Você acertou ${acertos} questões e sua nota é: ${acertos}`);
+
+} while (prompt("Outro aluno vai utilizar o sistema? (S/N)").toUpperCase() === "S");
+
+let mediaNotas = somaNotas / totalAlunos;
+
+alert(`Relatório Final:
+- Maior Acerto: ${maiorAcerto}
+- Menor Acerto: ${menorAcerto}
+- Total de Alunos: ${totalAlunos}
+- Média das Notas da Turma: ${mediaNotas.toFixed(2)}`);
