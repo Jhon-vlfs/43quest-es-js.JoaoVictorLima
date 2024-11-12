@@ -478,14 +478,157 @@ document.write(`Votos no candidato A: ${eleitorA} <br> Votos no candidato B: ${e
     alert(`A média de alunos por turma é ${media.toFixed(2)}`);
 }
 mediaAlunosPorTurma();
-29) 
-30) 
+28)function mediaAlunosPorTurma(){
+
+    let turmas = Number(prompt("Quantas turmas existem?"));
+    let alunos = 0;
+    let media = 0;
+
+    for(let i = 0; i < turmas; i++){
+        alunos = Number(prompt(`Quantos alunos tem a turma ${i + 1}?`));
+            if(alunos > 40){
+                alert("A turma não pode ter mais de 40 alunos!");
+                i--;
+            }
+        media += alunos;            
+    }
+    media = media / turmas;
+    alert(`A média de alunos por turma é ${media.toFixed(2)}`);
+}
+mediaAlunosPorTurma();
+29) function Valormed(total, num) {
+  return total / num;
+}
+
+let cds = parseInt(prompt("Quantos CDs tem em sua coleção?"));
+let cdtotal = 0;
+
+for (let i = 1; i <= cds; i++) {
+  let valor = parseFloat(prompt(`Quanto custou o CD ${i}?`));
+  if (isNaN(valor) || valor === null) {
+    alert("Valor inválido! Insira um número válido.");
+    i--;
+    continue;
+  }
+  
+  cdtotal += valor;
+}
+
+document.writeln(`Total investido: R$${cdtotal}<br>Valor médio para cada CD: 
+R$${Valormed(cdtotal, cds)}`);
+
+30) document.writeln("---------------------------------------- Lojas Quase Dois - Tabela de preços ----------------------------------<br><br>")
+let unico = 1.99.toFixed(2)
+for(var i =1;i<=50;i++){
+  document.writeln(`${i} produtos = RS ${i * unico}<br>`)
+}
 31) 
-32) 
+document.writeln("----------------------------------Panificadora Pão de Ontem - Tabela de preços--------------------------------<br><br>")
+let unico =parseFloat(prompt("insira o valor do pão:")).toFixed(2)
+for(var i =1;i<=50;i++){
+  document.writeln(`${i} - RS ${i * unico}<br>`)
+}
+
+
+32)
+function Troco(val,tot){
+  return val-tot;
+}
+let total= 0
+for(var i =1;i<=10;i++){
+  let valor =parseFloat(prompt("insira o valor do produto:"))
+  total+=valor
+  if(valor == 0){
+    break 
+  }
+  document.writeln(`Produto ${i}: R$${valor}<br>`)
+}   
+let pago = parseFloat(prompt("Quanto que o cliente pagou?"))
+document.writeln(`Total = R$ ${total}<br> Pago = R$${pago} <br> Troco = R$${Troco(pago,total)} `) 
+
 33) 
-34) 
-35) 
-36) 
+function Primos(valor) {
+  if (valor <= 1) return false;
+  if (valor === 2) return true;
+  if (valor % 2 === 0) return false;
+  
+  for (let i = 3; i <= Math.sqrt(valor); i += 2) {
+    if (valor % i === 0) return false;
+  }
+  
+  return true;
+}
+
+let numero = parseInt(prompt("Digite um número inteiro:"));
+
+if (Primos(numero)) {
+  document.writeln(`O número ${numero} é primo.`);
+} else {
+  document.writeln(`O número ${numero} não é primo.`);
+}
+
+34)
+function Primos(valor) {
+  if (valor <= 1) return false;
+  if (valor === 2) return true;
+  if (valor % 2 === 0) return false;
+
+  for (let i = 3; i <= Math.sqrt(valor); i += 2) {
+    if (valor % i === 0) return false;
+  }
+
+  return true;
+}
+
+let limite = parseInt(prompt("Digite um número inteiro:"));
+let listaPrimos = [];
+
+for (let i = 2; i <= limite; i++) {
+  if (Primos(i)) {
+    listaPrimos.push(i);
+  }
+}
+
+document.writeln(`Números primos entre 1 e ${limite}: ${listaPrimos.join(', ')}`);
+
+35) function Tabu(fixo,multi){
+  return fixo*multi;
+}
+let fix =parseInt(prompt("qual valor que vc quer saber a tabuada?"))
+let inicio =parseInt(prompt("por qual inteiro se inicia?"))
+let final =parseInt(prompt("por qual inteiro deve finalizar?"))
+alert("montar tabuada de: "+ fix +"\ncomeçar por: "+inicio+ "\nterminar em: "+final)
+document.writeln(`montarei a tabuada de ${fix} <br> começando por ${inicio} e terminarei em ${final}<br>`)
+for(let i =inicio;i<=final;i++){
+document.writeln(`${fix} x ${i} = ${Tabu(fix,i)}<br>`)
+} 
+
+36) function Tabu(fixo, multi) {
+  return fixo * multi;
+}
+
+let fix = parseInt(prompt("Qual valor que você quer saber a tabuada?"));
+
+let inicio, final; 
+ 
+while (true) {
+  inicio = parseInt(prompt("Por qual inteiro deve começar?"));
+  final = parseInt(prompt("Por qual inteiro deve terminar?"));
+  
+  if (inicio > final) {
+    alert("Início não pode ser maior que final. Por favor, insira novamente.");
+  } else {
+    break;
+  }
+}
+
+alert("Montar tabuada de: " + fix + "\nComeçar por: " + inicio + "\nTerminar em: " + final);
+document.writeln(`Montarei a tabuada de ${fix} <br> Começando por ${inicio} e terminarei em ${final}<br>`);
+
+for (let i = inicio; i <= final; i++) {
+  document.writeln(`${fix} x ${i} = ${Tabu(fix, i)}<br>`);
+}
+ 
 37)function sensoAcademiaCaracterísticas(){
     let bigger = {codigo: null, altura: 0};
     let smaller = {codigo: null, altura: Infinity};
